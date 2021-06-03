@@ -1,0 +1,66 @@
+.main {
+    background-color: rgb(237, 237, 237);
+    padding: 1%;
+    width: 100%;
+}
+
+.start {
+    width: 88px;
+    height: 88px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: .5s all;
+    margin: 20px;
+}
+
+.start:hover {
+    background-color: rgb(228, 9, 9);
+    font-weight: bolder;
+}
+
+.hit-active {
+    background-color: rgb(255, 0, 0) !important;
+}
+
+.indicator {
+    width: 20px;
+    height: 20px;
+    background-color: rgb(224, 222, 222);
+    border-radius: 50%;
+}
+
+.indicator-active {
+    background-color: red !important;
+}
+
+.clear-fix {
+    height: 1.5rem;
+}
+
+.pad {
+    width: 45px;
+    height: 45px;
+    background-color: rgba(190, 144, 233, 0.645);
+    border-radius: 10px;
+    display: inline-block;
+    cursor: pointer;
+    transition: all .8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    opacity: 1;
+    margin-right: .7rem;
+}
+
+.pad-active {
+    background-color: rgb(123, 36, 204);
+
+}
+
+.pad:hover {
+    background-color: rgb(130, 235, 9);
+}
+
+.row .col-md-2 {
+    background-color: white;
+}
