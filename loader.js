@@ -15,6 +15,57 @@ var kick_beats = [];
 var snare_beats = [];
 var hat_beats = [];
 
+function addPad() {
+  document.getElementById("bpm").textContent = bpm.toString() + " BPM";
+  document.getElementById("banks").textContent = banks.toString() + " BANKS";
+
+  var kickPads = document.getElementById("kick-pads");
+  var snarePads = document.getElementById("snare-pads");
+  var hatPads = document.getElementById("hat-pads");
+
+  // kicks
+  let kick = document.createElement("div");
+  kick.classList.add("pad");
+  kick.classList.add("shadow");
+  kick.setAttribute("id", `kick${kick_beats.length}`);
+  kick.setAttribute("onclick", `togglePad(this)`);
+  kickPads.appendChild(kick);
+
+  //   snares
+  let snare = document.createElement("div");
+  snare.classList.add("pad");
+  snare.classList.add("shadow");
+  snare.setAttribute("id", `snare${snare_beats.length}`);
+  snare.setAttribute("onclick", `togglePad(this)`);
+  snarePads.appendChild(snare);
+
+  // hats
+  let hat = document.createElement("div");
+  hat.classList.add("pad");
+  hat.classList.add("shadow");
+  hat.setAttribute("id", `hat${hat_beats.length}`);
+  hat.setAttribute("onclick", `togglePad(this)`);
+  hatPads.appendChild(hat);
+
+  kickPads = document.getElementById("kick-pads").children;
+  snarePads = document.getElementById("snare-pads").children;
+  hatPads = document.getElementById("hat-pads").children;
+
+  console.log(kick, snare, hat);
+  /*Create Pad object and add sounds */
+
+  kick_beats.push(new Pad("/sounds/kick.mp3", kick, kick_beats.length));
+  snare_beats.push(new Pad("/sounds/snare.mp3", snare, snare_beats.length));
+  hat_beats.push(new Pad("/sounds/hat.wav", hat, hat_beats.length));
+}
+
+function removePad() {
+  // get last pad set
+  kick_beats.pop().destroy();
+  snare_beats.pop().destroy();
+  hat_beats.pop().destroy();
+}
+
 function loadPads() {
   current_bank = 0;
   kick_beats = [];

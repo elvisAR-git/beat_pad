@@ -37,4 +37,8 @@ class Pad {
       this.view.classList.remove("pad-active");
     }
   }
+
+  destroy() {
+    this.view.remove();
+  }
 }

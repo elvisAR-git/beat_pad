@@ -81,19 +81,15 @@ function toggleHat() {
 function addBank() {
   if (banks < maximum_banks) {
     banks += 1;
-    start_stop(null);
-    loadPads();
-    start_stop(null);
+    addPad();
   }
 }
 
 // Subtract 1 bank
 
 function subtractBank() {
-  if (banks > 1) {
+  if (banks > 1 && current_bank != banks - 1) {
     banks -= 1;
-    start_stop(null);
-    loadPads();
-    start_stop(null);
+    removePad();
   }
 }
