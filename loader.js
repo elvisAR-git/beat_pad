@@ -16,7 +16,6 @@ var snare_beats = [];
 var hat_beats = [];
 
 function addPad() {
-  document.getElementById("bpm").textContent = bpm.toString() + " BPM";
   document.getElementById("banks").textContent = banks.toString() + " BANKS";
 
   var kickPads = document.getElementById("kick-pads");
@@ -61,6 +60,7 @@ function addPad() {
 
 function removePad() {
   // get last pad set
+  document.getElementById("banks").textContent = banks.toString() + " BANKS";
   kick_beats.pop().destroy();
   snare_beats.pop().destroy();
   hat_beats.pop().destroy();
