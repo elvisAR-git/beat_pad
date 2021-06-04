@@ -19,7 +19,7 @@
     border-radius: 50%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     transition: .2s all cubic-bezier(0.215, 0.610, 0.355, 1);
-    margin: 20px;
+    margin: 2rem;
 }
 
 
@@ -47,6 +47,11 @@
 
 .clear-fix {
     height: 1.5rem;
+}
+
+
+.card {
+    margin: .5rem;
 }
 
 .pad {
