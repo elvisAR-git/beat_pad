@@ -27,11 +27,11 @@ function togglePad(view) {
 // Starts and stops the playback
 function start_stop(element) {
   if (playing) {
-    if (element) element.innerText = "Start";
+    if (element) element.innerText = "play_circle_filled";
     window.clearInterval(main_loop);
     playing = false;
   } else {
-    if (element) element.innerText = "Stop";
+    if (element) element.innerText = "pause_circle_filled";
     playing = true;
     start();
   }
