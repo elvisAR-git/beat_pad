@@ -40,6 +40,20 @@
                             <div class="indicator" id="indicator"></div>
                         </div>
                     </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <button class="btn btn-outline-primary" onclick="addBank()">+1 Bank</button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-outline-danger" onclick="subtractBank()">-1 Bank</button>
+                        </div>
+                        <div class="col-md-4">
+                            <small
+                                style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 8pt;">Removing
+                                Banks while on play will clear the pad structure</small>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -84,7 +98,8 @@
 <!-- js -->
 
 <script src="./components/pad.component.js"></script>
-
+<script src="./loader.js"></script>
+<script src="./utilities.js"></script>
 
 <!-- main loop -->
 <script src="./index.js"></script>
