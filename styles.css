@@ -7,6 +7,10 @@
 .main {
     background-color: rgb(237, 237, 237);
     padding: 1%;
+    border-radius: 10px;
+    -moz-box-shadow: inset 0 0 10px #0000005d;
+    -webkit-box-shadow: inset 0 0 10px #0000005d;
+    box-shadow: inset 0 0 10px #0000007c;
     width: 100%;
 }
 
