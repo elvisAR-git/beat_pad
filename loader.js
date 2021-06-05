@@ -68,7 +68,7 @@ function addPad() {
   kick_beats.push(new Pad("sounds/kick.mp3", kick, kick_beats.length));
   snare_beats.push(new Pad("sounds/snare.mp3", snare, snare_beats.length));
   hat_beats.push(new Pad("sounds/hat.wav", hat, hat_beats.length));
-  crash_beats.push(new Pad("sounds/crash.wav", hat, crash_beats.length));
+  crash_beats.push(new Pad("sounds/crash.wav", crash, crash_beats.length));
 }
 
 function removePad() {
