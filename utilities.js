@@ -13,7 +13,7 @@ function getPadByViewId(id, pad_list) {
   }
 }
 
-// turns a dingle pad ON or OFF
+// turns a single pad ON or OFF
 function togglePad(view) {
   if (view.id.includes("kick")) {
     getPadByViewId(view.id, kick_beats).toggle();
@@ -21,6 +21,8 @@ function togglePad(view) {
     getPadByViewId(view.id, snare_beats).toggle();
   } else if (view.id.includes("hat")) {
     getPadByViewId(view.id, hat_beats).toggle();
+  } else if (view.id.includes("crash")) {
+    getPadByViewId(view.id, crash_beats).toggle();
   }
 }
 
@@ -72,9 +74,14 @@ function toggleKick() {
 function toggleSnare() {
   snares_enabled = !snares_enabled;
 }
-// turns hats kicks ON/OFF
+// turns hats ON/OFF
 function toggleHat() {
   hats_enabled = !hats_enabled;
+}
+
+// turns crashes ON/OFF
+function toggleCrash() {
+  crash_enabled = !crash_enabled;
 }
 
 // add 1 bank

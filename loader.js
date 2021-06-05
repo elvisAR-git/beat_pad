@@ -1,19 +1,22 @@
 var kicks_enabled = false;
 var snares_enabled = false;
 var hats_enabled = false;
+var crash_enabled = false;
 
 let bpm = 200;
 var playing = false;
 let bpm_for_one = 60000 / bpm;
 
-// max number of pads
+// Number of starting pads
 let banks = 18;
+// where to start the cycle
 let current_bank = 0;
 
 // list of pad objects to use
 var kick_beats = [];
 var snare_beats = [];
 var hat_beats = [];
+var crash_beats = [];
 
 function addPad() {
   document.getElementById("banks").textContent = banks.toString() + " BANKS";
@@ -21,6 +24,7 @@ function addPad() {
   var kickPads = document.getElementById("kick-pads");
   var snarePads = document.getElementById("snare-pads");
   var hatPads = document.getElementById("hat-pads");
+  var crashPads = document.getElementById("crash-pads");
 
   // kicks
   let kick = document.createElement("div");
@@ -46,16 +50,25 @@ function addPad() {
   hat.setAttribute("onclick", `togglePad(this)`);
   hatPads.appendChild(hat);
 
+  // crashes
+  let crash = document.createElement("div");
+  crash.classList.add("pad");
+  crash.classList.add("shadow");
+  crash.setAttribute("id", `crash${crash_beats.length}`);
+  crash.setAttribute("onclick", `togglePad(this)`);
+  crashPads.appendChild(crash);
+
   kickPads = document.getElementById("kick-pads").children;
   snarePads = document.getElementById("snare-pads").children;
   hatPads = document.getElementById("hat-pads").children;
+  crashPads = document.getElementById("crash-pads").children;
 
-  console.log(kick, snare, hat);
   /*Create Pad object and add sounds */
 
-  kick_beats.push(new Pad("/sounds/kick.mp3", kick, kick_beats.length));
-  snare_beats.push(new Pad("/sounds/snare.mp3", snare, snare_beats.length));
-  hat_beats.push(new Pad("/sounds/hat.wav", hat, hat_beats.length));
+  kick_beats.push(new Pad("sounds/kick.mp3", kick, kick_beats.length));
+  snare_beats.push(new Pad("sounds/snare.mp3", snare, snare_beats.length));
+  hat_beats.push(new Pad("sounds/hat.wav", hat, hat_beats.length));
+  crash_beats.push(new Pad("sounds/crash.wav", hat, crash_beats.length));
 }
 
 function removePad() {
@@ -64,6 +77,7 @@ function removePad() {
   kick_beats.pop().destroy();
   snare_beats.pop().destroy();
   hat_beats.pop().destroy();
+  crash_beats.pop().destroy();
 }
 
 function loadPads() {
@@ -71,6 +85,7 @@ function loadPads() {
   kick_beats = [];
   snare_beats = [];
   hat_beats = [];
+  crash_beats = [];
 
   indicator = document.getElementById("indicator");
   document.getElementById("bpm").textContent = bpm.toString() + " BPM";
@@ -79,9 +94,11 @@ function loadPads() {
   var kickPads = document.getElementById("kick-pads");
   var snarePads = document.getElementById("snare-pads");
   var hatPads = document.getElementById("hat-pads");
+  var crashPads = document.getElementById("crash-pads");
   kickPads.innerHTML = "";
   snarePads.innerHTML = "";
   hatPads.innerHTML = "";
+  crashPads.innerHTML = "";
 
   for (let index = 0; index < banks; index++) {
     // kicks
@@ -107,33 +124,49 @@ function loadPads() {
     p.setAttribute("id", `hat${index}`);
     p.setAttribute("onclick", `togglePad(this)`);
     hatPads.appendChild(p);
+
+    // crashes
+    p = document.createElement("div");
+    p.classList.add("pad");
+    p.classList.add("shadow");
+    p.setAttribute("id", `crash${index}`);
+    p.setAttribute("onclick", `togglePad(this)`);
+    crashPads.appendChild(p);
   }
 
   kickPads = document.getElementById("kick-pads").children;
   snarePads = document.getElementById("snare-pads").children;
   hatPads = document.getElementById("hat-pads").children;
+  crashPads = document.getElementById("crash-pads").children;
 
   /*Create Pad object and add sounds */
 
   var i = 0;
 
   for (let _ of kickPads) {
-    let v = new Pad("/sounds/kick.mp3", kickPads.item(i), i);
+    let v = new Pad("sounds/kick.mp3", kickPads.item(i), i);
     kick_beats.push(v);
     i += 1;
   }
 
   i = 0;
   for (let _ of snarePads) {
-    let v = new Pad("/sounds/snare.mp3", snarePads.item(i), i);
+    let v = new Pad("sounds/snare.mp3", snarePads.item(i), i);
     snare_beats.push(v);
     i += 1;
   }
 
   i = 0;
   for (let _ of hatPads) {
-    let v = new Pad("/sounds/hat.wav", hatPads.item(i), i);
+    let v = new Pad("sounds/hat.wav", hatPads.item(i), i);
     hat_beats.push(v);
+    i += 1;
+  }
+
+  i = 0;
+  for (let _ of crashPads) {
+    let v = new Pad("sounds/crash.wav", crashPads.item(i), i);
+    crash_beats.push(v);
     i += 1;
   }
 }

@@ -33,6 +33,15 @@ async function start() {
       });
     }
 
+    // check for crashes
+    if (crash_enabled) {
+      crash_beats.forEach((pad) => {
+        if (pad.id === current_bank) {
+          pad.play(bpm_for_one);
+        }
+      });
+    }
+
     // if at end of banks, reset to zero position
 
     if (current_bank === banks - 1) {
