@@ -71,6 +71,13 @@ function addPad() {
   crash_beats.push(new Pad("sounds/crash.wav", crash, crash_beats.length));
 }
 
+function restSwitches() {
+  document.getElementById("kick-switch").checked = false;
+  document.getElementById("snare-switch").checked = false;
+  document.getElementById("hat-switch").checked = false;
+  document.getElementById("crash-switch").checked = false;
+}
+
 function removePad() {
   // get last pad set
   document.getElementById("banks").textContent = banks.toString() + " BANKS";
@@ -81,6 +88,7 @@ function removePad() {
 }
 
 function loadPads() {
+  restSwitches();
   current_bank = 0;
   kick_beats = [];
   snare_beats = [];
