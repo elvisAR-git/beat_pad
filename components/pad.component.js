@@ -1,16 +1,16 @@
 class Pad {
   sound = null;
   view = null;
-  id = null;
+  bank = null;
   enabled = false;
   audio;
 
-  constructor(pad_sound, html_element, id) {
+  constructor(pad_sound, html_element, bank) {
     if (pad_sound && html_element) {
       this.sound = pad_sound;
       this.view = html_element;
       this.audio = new Audio(this.sound);
-      this.id = parseInt(id);
+      this.bank = parseInt(bank);
     }
   }
 
