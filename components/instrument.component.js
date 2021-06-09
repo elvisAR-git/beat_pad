@@ -24,7 +24,7 @@ class Instrument {
   * @param {String} soundFile - path to the sound file
   * @param {String} name - the name of the instrument
 
-  * @return {Instrument}: an instance of an instrument in Memory
+  * @returns {Instrument}: an instance of an instrument in Memory
  
  
   * @property {Array} pads - an array of Pad objects for the instrument
@@ -94,7 +94,9 @@ class Instrument {
     if (this.enabled) {
       this.pads.forEach(async (pad) => {
         if (pad.bank == bank) {
+          // flash indicator
           await pad.play(bpm_for_one);
+          // flash indicator
         }
       });
     }

@@ -25,15 +25,16 @@
     <div class="p-2">
         <div class="col-12 p-4 main">
             <div class="row">
-                <button class="start shadow btn btn-outline-danger material-icons" onclick="start_stop(this)">
+                <button class="start shadow btn btn-outline-danger material-icons indicator" onclick="start_stop(this)"
+                    id="indicator">
                     play_circle_filled
                 </button>
                 <div class="row col-md-10">
-                    <div class="card col-4 card-body">
+                    <div class="card col-4 card-body shadow">
                         <h4><span id="bpm" class="badge bg-primary"></span></h4>
                         <h4><span id="banks"></span></h4>
                     </div>
-                    <div class="card card-body col-md-6 text-center">
+                    <div class="card card-body col-md-6 text-center shadow">
                         <div class="row">
                             <div class="col-md-4">
                                 <button class="btn btn-primary" onclick="addBPM(this)">
@@ -46,7 +47,7 @@
                                 </button>
                             </div>
                             <div class="col-md-4">
-                                <div class="indicator" id="indicator"></div>
+                                <div></div>
                             </div>
                         </div>
                         <br />

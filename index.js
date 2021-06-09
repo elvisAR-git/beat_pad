@@ -1,5 +1,6 @@
 var main_loop;
 let MAIN_VIEW = document.getElementById("main");
+let indicator = document.getElementById("indicator");
 let INSTRUMENT_ARRAY = [];
 
 // Number of starting pads
@@ -30,11 +31,7 @@ const maximum_banks = 40;
 UpdateUI();
 
 async function start() {
-  indicator = document.getElementById("indicator");
-
   main_loop = setInterval(() => {
-    indicator.classList.add("indicator-active");
-
     INSTRUMENT_ARRAY.forEach((instrument) => {
       instrument.playPads(current_bank);
     });
@@ -44,10 +41,5 @@ async function start() {
     } else {
       current_bank += 1;
     }
-
-    // flash indicator
-    setTimeout(() => {
-      indicator.classList.remove("indicator-active");
-    }, bpm_for_one - 30);
   }, bpm_for_one);
 }

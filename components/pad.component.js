@@ -17,12 +17,16 @@ class Pad {
   async play(bpm) {
     this.view.classList.add("hit-active");
     if (this.enabled) {
+      if (indicator) indicator.classList.add("indicator-active");
       this.audio.play();
     }
 
     setTimeout(() => {
       if (this.enabled) {
         this.audio.pause;
+        if (indicator) {
+          indicator.classList.remove("indicator-active");
+        }
       }
 
       this.view.classList.remove("hit-active");
