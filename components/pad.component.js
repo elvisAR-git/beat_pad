@@ -5,6 +5,11 @@ class Pad {
   enabled = false;
   audio;
 
+  /**A pad component. representing the smallest functional unit in the music pad
+   * @param {String} pad_sound - Path to the sound file
+   * @param {HTMLElement} html_element - The element onto which to bind the pad view
+   * @param {Number} bank - a number that corrsponds with the bank on which the pad will be active
+   */
   constructor(pad_sound, html_element, bank) {
     if (pad_sound && html_element) {
       this.sound = pad_sound;

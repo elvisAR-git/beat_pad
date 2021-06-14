@@ -14,10 +14,10 @@ let bpm_for_one = 0;
 /**Initialize instruments
  * using the Instrument component
  */
-let kick = new Instrument(banks, "sounds/kick.mp3", "Kick");
-let snare = new Instrument(banks, "sounds/snare.mp3", "909-Snare");
-let hitHat = new Instrument(banks, "sounds/hat.wav", "Hit-Hat");
-let crash = new Instrument(banks, "sounds/crash.wav", "Crash");
+const kick = new Instrument(banks, "sounds/kick.mp3", "Kick");
+const snare = new Instrument(banks, "sounds/snare.mp3", "909-Snare");
+const hitHat = new Instrument(banks, "sounds/hat.wav", "Hit-Hat");
+const crash = new Instrument(banks, "sounds/crash.wav", "Crash");
 
 kick.RenderInstrument(MAIN_VIEW);
 snare.RenderInstrument(MAIN_VIEW);
