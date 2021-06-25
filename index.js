@@ -18,13 +18,16 @@ const kick = new Instrument(banks, "sounds/kick.mp3", "Kick");
 const snare = new Instrument(banks, "sounds/snare.mp3", "909-Snare");
 const hitHat = new Instrument(banks, "sounds/hat.wav", "Hit-Hat");
 const crash = new Instrument(banks, "sounds/crash.wav", "Crash");
+const tom = new Instrument(banks,"sounds/tom.wav","Electric Tom")
+
 
 kick.RenderInstrument(MAIN_VIEW);
 snare.RenderInstrument(MAIN_VIEW);
 hitHat.RenderInstrument(MAIN_VIEW);
 crash.RenderInstrument(MAIN_VIEW);
+tom.RenderInstrument(MAIN_VIEW);
 
-INSTRUMENT_ARRAY.push(snare, kick, hitHat, crash);
+INSTRUMENT_ARRAY.push(snare, kick, hitHat, crash, tom);
 
 const maximum_banks = 40;
 
